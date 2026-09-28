@@ -1,16 +1,16 @@
 module TFF(
-    input clk, rstn, t,
-    output reg q
+    input clk, rstn, T,
+    output reg Q
 )
 
 //TFF Logic
 always @ (posedge clk) begin
     if (!rstn)
-        q <= 1'b0;
+        Q <= 1'b0;
     else if (T)
-        q <= ~q;
+        Q <= ~Q;
     else
-        q <= q;
+        Q <= Q;
 end
 
 endmodule
