@@ -3,9 +3,9 @@ module TFF(
     output reg Q
 );
 
-//TFF Logic
+//TFF Logic 
 always @ (posedge clk) begin
-    if (!rstn)
+    if (!rstn) //rstn --> active low reset signal (reset when rstn == 0)
         Q <= 1'b0;
     else if (T)
         Q <= ~Q;
