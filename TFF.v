@@ -1,7 +1,7 @@
 module TFF(
     input clk, rstn, T,
     output reg Q
-)
+);
 
 //TFF Logic
 always @ (posedge clk) begin
