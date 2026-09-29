@@ -1,3 +1,5 @@
+//3 bit upcounter
+
 module Count3Bit (
     input clk, en,
     output Q0, Q1, Q2
