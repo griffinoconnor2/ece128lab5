@@ -1,13 +1,19 @@
 module SRFF(
     input S, R, CLK,
-    output Q, Qbar
+    output reg Q,
+    output Qbar
 );
-    wire w1, w2;
-    
-    and A1(w1, R, CLK);
-    and A2(w2, S, CLK);
+    assign Qbar = ~Q;
 
-    nor N1(Q, w1, Qbar);
-    nor N2(Qbar, w2, Q);
+    always @(posedge CLK)
+    begin 
+        case({S, R})
+            2'b00: Q <= Q; //Hold
+            2'b01: Q <= 1'b0; //Reset
+            2'b10: Q <= 1'b1; //Set
+            2'b11: Q <= 1'bx; //Invalid
+
+        endcase
+    end
 
 endmodule
