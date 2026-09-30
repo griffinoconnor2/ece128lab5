@@ -6,7 +6,7 @@ module DFFA(
     //Trigger during positive edge of the clock signal or the reset signal
     always@(posedge CLK or posedge R)
         begin 
-            if (R) 
+            if (~R) 
                 Q <= 1'b0;
             else 
                 Q <= D;
