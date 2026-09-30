@@ -4,7 +4,7 @@ module DFFA(
     output reg Q
 );  
     //Trigger during positive edge of the clock signal or the reset signal
-    always@(posedge CLK or posedge R)
+    always@(posedge CLK or negedge R)
         begin 
             if (~R) 
                 Q <= 1'b0;
